@@ -897,6 +897,14 @@ fast-safe-stringify@^2.0.7:
   resolved "https://registry.npmjs.org/fast-safe-stringify/-/fast-safe-stringify-2.0.7.tgz"
   integrity sha512-Utm6CdzT+6xsDk2m8S6uL8VHxNwI6Jub+e9NYTcAms28T84pTa25GJQV9j0CY0N1rM8hK4x6grpF2BQf+2qwVA==
 
+fastify-autoload@^3.8.0:
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/fastify-autoload/-/fastify-autoload-3.8.0.tgz#96e7359f2b8256c8425249ddd173a0feb85f2f9f"
+  integrity sha512-pp9064HilE70c8BTRJqJ6e6P9M2wKr54Eugeiy9eWf5DTZ49x2TFLaGEGEy/uw/7olrUQOgya/z8kb8zyZao5w==
+  dependencies:
+    pkg-up "^3.1.0"
+    semver "^7.3.2"
+
 fastify-error@^0.3.0:
   version "0.3.1"
   resolved "https://registry.npmjs.org/fastify-error/-/fastify-error-0.3.1.tgz"
@@ -986,6 +994,13 @@ find-up@^2.0.0, find-up@^2.1.0:
   integrity sha1-RdG35QbHF93UgndaK3eSCjwMV6c=
   dependencies:
     locate-path "^2.0.0"
+
+find-up@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/find-up/-/find-up-3.0.0.tgz#49169f1d7993430646da61ecc5ae355c21c97b73"
+  integrity sha512-1yD6RmLI1XBfxugvORwlck6f75tYL+iR0jqwsOrOxMZyGYqUuDhJ0l4AXdO1iX/FTs9cBAMEk1gWSEx1kSbylg==
+  dependencies:
+    locate-path "^3.0.0"
 
 flat-cache@^3.0.4:
   version "3.0.4"
@@ -1479,6 +1494,14 @@ locate-path@^2.0.0:
     p-locate "^2.0.0"
     path-exists "^3.0.0"
 
+locate-path@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/locate-path/-/locate-path-3.0.0.tgz#dbec3b3ab759758071b58fe59fc41871af21400e"
+  integrity sha512-7AO748wWnIhNqAuaty2ZWHkQHRSNfPVIsPIfwEOWO22AmaoVrWavlOcMR5nzTLNYvp36X220/maaRsrec1G65A==
+  dependencies:
+    p-locate "^3.0.0"
+    path-exists "^3.0.0"
+
 lodash.clonedeep@^4.5.0:
   version "4.5.0"
   resolved "https://registry.npmjs.org/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz"
@@ -1712,6 +1735,13 @@ p-limit@^1.1.0:
   dependencies:
     p-try "^1.0.0"
 
+p-limit@^2.0.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/p-limit/-/p-limit-2.3.0.tgz#3dd33c647a214fdfffd835933eb086da0dc21db1"
+  integrity sha512-//88mFWSJx8lxCzwdAABTJL2MyWB12+eIY7MDL2SqLmAkeKU9qxRvWuSyTjm3FUmpBEMuFfckAIqEaVGUDxb6w==
+  dependencies:
+    p-try "^2.0.0"
+
 p-locate@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/p-locate/-/p-locate-2.0.0.tgz"
@@ -1719,10 +1749,22 @@ p-locate@^2.0.0:
   dependencies:
     p-limit "^1.1.0"
 
+p-locate@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/p-locate/-/p-locate-3.0.0.tgz#322d69a05c0264b25997d9f40cd8a891ab0064a4"
+  integrity sha512-x+12w/To+4GFfgJhBEpiDcLozRJGegY+Ei7/z0tSLkMmxGZNybVMSfWj9aJn8Z5Fc7dBUNJOOVgPv2H7IwulSQ==
+  dependencies:
+    p-limit "^2.0.0"
+
 p-try@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/p-try/-/p-try-1.0.0.tgz"
   integrity sha1-y8ec26+P1CKOE/Yh8rGiN8GyB7M=
+
+p-try@^2.0.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/p-try/-/p-try-2.2.0.tgz#cb2868540e313d61de58fafbe35ce9004d5540e6"
+  integrity sha512-R4nPAVTAU0B9D35/Gk3uJf/7XYbQcyohSKdvAxIRSNghFl4e71hVoGnBNQz9cWaXxO2I10KTC+3jMdvvoKw6dQ==
 
 package-json@^6.3.0:
   version "6.5.0"
@@ -1816,6 +1858,13 @@ pkg-up@^2.0.0:
   integrity sha1-yBmscoBZpGHKscOImivjxJoATX8=
   dependencies:
     find-up "^2.1.0"
+
+pkg-up@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/pkg-up/-/pkg-up-3.1.0.tgz#100ec235cc150e4fd42519412596a28512a0def5"
+  integrity sha512-nDywThFk1i4BQK4twPQ6TA4RT8bDY96yeuCVBWL3ePARCiEKDRSrNGbFIgUJpLp+XeIR65v8ra7WuJOFUBtkMA==
+  dependencies:
+    find-up "^3.0.0"
 
 prelude-ls@^1.2.1:
   version "1.2.1"

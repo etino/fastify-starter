@@ -1,18 +1,19 @@
 const fastify = require('fastify')({ logger: true })
+const autoload = require('fastify-autoload')
+const path = require('path')
 
-fastify.register(require('./db/our-db-connector'), {
-  url: 'mongodb://127.0.0.1:27017/job',
-  useUnifiedTopology: true,
+// ecosystem plugins
+fastify.register(require('fastify-mongodb'), {
   forceClose: true,
+  url: 'mongodb://127.0.0.1:27017/job',
 })
 
-// fastify.register(require('fastify-mongodb'), {
-//   forceClose: true,
-//   url: 'mongodb://127.0.0.1:27017/job',
-// })
+// autoload routes
+fastify.register(autoload, {
+  dir: path.join(__dirname, 'routes'),
+})
 
-fastify.register(require('./routes/our-first-route'))
-
+// start
 fastify.listen(4001, '0.0.0.0', (err, address) => {
   if (err) {
     fastify.log.error(err)
