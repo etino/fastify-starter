@@ -1,4 +1,4 @@
-async function routes(fastify) {
+async function companiesRoutes(fastify) {
   fastify.post(
     '/',
     {
@@ -38,4 +38,4 @@ async function routes(fastify) {
   )
 }
 
-module.exports = routes
+module.exports = companiesRoutes
