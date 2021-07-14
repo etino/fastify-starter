@@ -1,43 +1,37 @@
-'use strict'
+import { config } from 'dotenv'
+import Fastify from 'fastify'
+import * as closeWithGrace from 'close-with-grace'
 
-// Read the .env file.
-require('dotenv').config()
+import app from './app'
 
-// Require the framework
-const Fastify = require('fastify')
+// load env variable
+config()
 
-// Require library to exit fastify process, gracefully (if possible)
-const closeWithGrace = require('close-with-grace')
-
-// Instantiate Fastify with some config
-const app = Fastify({
+// register main app
+const fastify = Fastify({
   logger: true,
 })
+fastify.register(app)
 
-// Register your application as a normal plugin.
-const appService = require('./app')
-app.register(appService)
-
-// delay is the number of milliseconds for the graceful close to finish
+// add hook
 const closeListeners = closeWithGrace(
   { delay: 500 },
   async function ({ signal, err, manual }) {
     if (err) {
-      app.log.error(err)
+      fastify.log.error(err)
     }
-    await app.close()
+    await fastify.close()
   }
 )
-
-app.addHook('onClose', async (instance, done) => {
+fastify.addHook('onClose', async (instance, done) => {
   closeListeners.uninstall()
   done()
 })
 
-// Start listening.
-app.listen(process.env.PORT || 4001, (err) => {
+// start
+fastify.listen(process.env.PORT || 4001, (err) => {
   if (err) {
-    app.log.error(err)
+    fastify.log.error(err)
     process.exit(1)
   }
 })
