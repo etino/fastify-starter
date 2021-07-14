@@ -1,9 +1,23 @@
 {
-  "extends": "fastify-tsconfig",
   "compilerOptions": {
     "allowJs": true,
+    "declaration": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["esnext"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "newLine": "lf",
+    "noEmitOnError": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
     "outDir": "dist",
-    "strict": false
+    "pretty": true,
+    "removeComments": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "target": "es2018",
+    "useDefineForClassFields": true
   },
   "include": ["src/**/*.ts"]
 }
