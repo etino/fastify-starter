@@ -34,8 +34,9 @@ const companiesRoutes: FastifyPluginAsync = async (fastify): Promise<void> => {
       const { db } = this.mongo
       const { displayName, description, foundedAt, nifNum, statNum } =
         request.body
-
       try {
+        if (!db) throw new Error('DB instance is undefined')
+
         const collection = await db.collection('companies')
         const data = await collection.insertOne({
           description,

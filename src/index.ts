@@ -13,16 +13,19 @@ const fastify = Fastify({
 })
 fastify.register(app)
 
-// add hook
-const closeListeners = closeWithGrace(
-  { delay: 500 },
-  async function ({ signal, err, manual }) {
-    if (err) {
-      fastify.log.error(err)
-    }
-    await fastify.close()
+const cb: closeWithGrace.CloseWithGraceAsyncCallback = async ({
+  signal,
+  err,
+  manual,
+}) => {
+  if (err) {
+    fastify.log.error(err)
   }
-)
+  await fastify.close()
+}
+
+// add hook
+const closeListeners = closeWithGrace({ delay: 500 }, cb)
 fastify.addHook('onClose', async (instance, done) => {
   closeListeners.uninstall()
   done()
