@@ -1,7 +1,9 @@
-async function rootRoutes(fastify) {
+import { FastifyPluginAsync } from 'fastify'
+
+const rootRoutes: FastifyPluginAsync = async (fastify): Promise<void> => {
   fastify.get('/', async function (req, res) {
     res.send({ root: 'this is the root api' })
   })
 }
 
-module.exports = rootRoutes
+export default rootRoutes

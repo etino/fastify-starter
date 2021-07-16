@@ -1,21 +1,35 @@
-async function companiesRoutes(fastify) {
-  fastify.post(
+import { FastifyPluginAsync } from 'fastify'
+
+interface Body {
+  displayName: string
+  foundedAt: string
+  nifNum: string
+  statNum: string
+  description?: string
+}
+
+const bodyJsonSchema = {
+  type: 'object',
+  required: ['displayName', 'foundedAt', 'nifNum', 'statNum'],
+  properties: {
+    displayName: { type: 'string' },
+    foundedAt: { type: 'string' },
+    nifNum: { type: 'string' },
+    statNum: { type: 'string' },
+    description: { type: 'string' },
+  },
+}
+
+const jsonSchema = {
+  schema: {
+    body: bodyJsonSchema,
+  },
+}
+
+const companiesRoutes: FastifyPluginAsync = async (fastify): Promise<void> => {
+  fastify.post<{ Body: Body }>(
     '/',
-    {
-      schema: {
-        body: {
-          type: 'object',
-          properties: {
-            displayName: { type: 'string' },
-            description: { type: 'string' },
-            foundedAt: { type: 'string' },
-            nifNum: { type: 'string' },
-            statNum: { type: 'string' },
-          },
-          required: ['displayName', 'foundedAt', 'nifNum', 'statNum'],
-        },
-      },
-    },
+    jsonSchema,
     async function (request, reply) {
       const { db } = this.mongo
       const { displayName, description, foundedAt, nifNum, statNum } =
@@ -30,7 +44,7 @@ async function companiesRoutes(fastify) {
           nifNum,
           statNum,
         })
-        reply.send({ opsStatus: data.result, data: data.ops })
+        reply.send({ id: data.insertedId })
       } catch (err) {
         fastify.log.error(err)
       }
