@@ -7,6 +7,7 @@
     "build": "tsc",
     "dev": "tsc && concurrently -k -p \"[{name}]\" -n \"TypeScript,App\" -c \"yellow.bold,cyan.bold\" \"tsc -w\" \"nodemon dist\"",
     "start": "npm run build && node dist",
+    "typecheck": "tsc --noEmit",
     "update": "yarn upgrade-interactive --latest"
   },
   "keywords": [
