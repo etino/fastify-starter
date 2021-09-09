@@ -13,11 +13,7 @@ const fastify = Fastify({
 })
 fastify.register(app)
 
-const cb: closeWithGrace.CloseWithGraceAsyncCallback = async ({
-  signal,
-  err,
-  manual,
-}) => {
+const cb: closeWithGrace.CloseWithGraceAsyncCallback = async ({ err }) => {
   if (err) {
     fastify.log.error(err)
   }

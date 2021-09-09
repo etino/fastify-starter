@@ -3,7 +3,7 @@ import AutoLoad, { AutoloadPluginOptions } from 'fastify-autoload'
 import { FastifyPluginAsync } from 'fastify'
 import fastifyMongodb from 'fastify-mongodb'
 
-export type AppOptions = {} & Partial<AutoloadPluginOptions>
+export type AppOptions = Partial<AutoloadPluginOptions>
 
 const app: FastifyPluginAsync<AppOptions> = async (
   fastify,

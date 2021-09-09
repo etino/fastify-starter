@@ -26,7 +26,7 @@ const jsonSchema = {
   },
 }
 
-const companiesRoutes: FastifyPluginAsync = async (fastify): Promise<void> => {
+const companiesRoutes: FastifyPluginAsync = async (fastify) => {
   fastify.post<{ Body: Body }>(
     '/',
     jsonSchema,
