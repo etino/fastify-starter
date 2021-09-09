@@ -6,6 +6,7 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsc && concurrently -k -p \"[{name}]\" -n \"TypeScript,App\" -c \"yellow.bold,cyan.bold\" \"tsc -w\" \"nodemon dist\"",
+    "format": "prettier --write .",
     "lint": "eslint --ext .tsx,.ts,.jsx,.js src/",
     "start": "npm run build && node dist",
     "typecheck": "tsc --noEmit",
@@ -40,6 +41,7 @@
     "eslint": "^7.30.0",
     "eslint-config-prettier": "^8.3.0",
     "nodemon": "^2.0.12",
+    "prettier": "^2.4.0",
     "typescript": "^4.3.5"
   }
 }
